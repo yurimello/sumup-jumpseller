@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem 'rack'
 gem 'puma'
+gem 'rack'
 
 group :development, :test do
-  gem 'rspec'
   gem 'byebug'
+  gem 'rspec'
+  gem 'rubocop'
 end
