@@ -3,6 +3,6 @@
 # Entry point of the whole aplication
 class Application
   def call(_env)
-    [200, { 'Content-Type' => 'text/plain' }, ['Ok']]
+    [200, { 'Content-Type' => 'text/plain' }, ['It Works']]
   end
 end
