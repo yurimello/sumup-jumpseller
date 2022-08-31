@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'bundler'
-Bundler.require(:default, ENV['RACK_ENV'])
-require_relative './config/application'
+# This file is used by Rack-based servers to start the application.
 
-use Rack::Reloader
-run Application.new
+require_relative 'config/environment'
+
+run Rails.application
+Rails.application.load_server
