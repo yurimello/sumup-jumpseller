@@ -16,7 +16,7 @@ describe Application do
 
     it 'returns ok response' do
       expect(response_code).to eq(200)
-      expect(response_body).to eq('Ok')
+      expect(response_body).to eq('It Works')
     end
   end
 end
