@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# Entry point of the whole aplication
 class Application
-  def call(env)
-    [200, { 'Content-Type' => 'text/plain' }, ['Ok']]
+  def call(_env)
+    [200, { 'Content-Type' => 'text/plain' }, ['It Works']]
   end
 end

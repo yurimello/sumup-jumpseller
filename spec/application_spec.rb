@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './spec_helper'
 require_relative '../config/application'
 
@@ -7,7 +9,7 @@ describe Application do
   describe 'GET /' do
     let(:path) { '/' }
     let(:request) {  get(app, path) }
-    
+
     let(:response) { app.call(request) }
     let(:response_code) { response.first }
     let(:response_body) { response.last.first }
