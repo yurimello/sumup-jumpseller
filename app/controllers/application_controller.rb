@@ -2,7 +2,8 @@
 
 class ApplicationController < ActionController::Base
   private
-  def request_from_jumpseller?
-    request.base_url.match(/jumpseller/)
+
+  def current_transaction
+    @current_transaction ||= SessionDecorator.decorate(session).fetch_transaction
   end
 end

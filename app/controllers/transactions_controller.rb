@@ -1,7 +1,8 @@
 class TransactionsController < ApplicationController
-  skip_before_action :verify_authenticity_token, if: :request_from_jumpseller?
-  
+  skip_before_action :verify_authenticity_token
+
   def create
-    render inline: 'Received'
+    SessionDecorator.decorate(session).store_transaction(params)
+    render inline: current_transaction.to_json
   end
 end
