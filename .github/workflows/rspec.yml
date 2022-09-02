@@ -12,6 +12,9 @@ jobs:
           POSTGRES_USER: sumup
           POSTGRES_PASSWORD: ''
           POSTGRES_DB: sumup_test
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     env: 
       RACK_ENV: test
     steps:
