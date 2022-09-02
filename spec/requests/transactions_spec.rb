@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Transactions', type: :request do
   describe 'POST /transactions' do
     subject(:transaction) { build(:transaction) }
-    
+
     it 'responds with ok', :aggregate_failures do
       post transactions_path(transaction.to_h)
       expect(response).to have_http_status(200)
