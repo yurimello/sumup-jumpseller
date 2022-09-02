@@ -3,6 +3,7 @@ class TransactionsController < ApplicationController
 
   def create
     SessionDecorator.decorate(session).store_transaction(params)
-    render inline: current_transaction.to_json
+    return render inline: 'ok' if current_transaction.valid?
+    render json: current_transaction.errors, status: :unprocessable_entity
   end
 end

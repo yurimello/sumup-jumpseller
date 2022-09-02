@@ -4,20 +4,20 @@ class SessionDecorator < SimpleDelegator
   end
 
   def store_transaction(transaction)
-    self['transaction'] = cleanup_transaction_params(transaction).to_json
+    self['transaction'] = whitelisted_params(transaction).to_json
   end
 
   def fetch_transaction
     transaction = self['transaction']
     return {} if transaction.nil? || transaction.blank?
 
-    JSON.parse(transaction)
+    Transaction.new JSON.parse(transaction)
   end
 
   private
 
-  def cleanup_transaction_params(transaction)
-    transaction.except('controller', 'action')
+  def whitelisted_params(transaction)
+    transaction.permit(*Transaction::ATTRIBUTES)
   end
 
   def decorated_object
